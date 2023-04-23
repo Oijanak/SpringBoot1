@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+</head>
+<body>
+		<div th:insert="header.html"></div>
+	<div class="container-fluid">
+
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+
+				<h4>Employee Details</h4>
+
+			</div>
+
+			<div class="card-body">
+			
+			<form action="/updateEmp" method="post" th:object="${empModel}">
+
+				<div class="row m-2">
+					<div class="col-4">First Name</div>
+					<div class="col-6">
+						<input type="text" th:field="*{fname}" class="form-control">
+					</div>
+				</div>
+
+				<div class="row m-2">
+					<div class="col-4">Last Name</div>
+					<div class="col-6">
+						<input type="text" th:field="*{lname}" class="form-control">
+					</div>
+				</div>
+
+				<div class="row m-2">
+					<div class="col-4">Gender</div>
+					<div class="col-6">
+						<input type="radio" th:field="*{gender}" value="male" > Male
+						<input type="radio" th:field="*{gender}" value="female" > Female
+					</div>
+				</div>
+				
+				<div class="row m-2">
+					<div class="col-4">DOB</div>
+					<div class="col-6">
+						<input type="date" th:field="*{dob}" class="form-control">
+					</div>
+				</div>
+				
+				<div class="row m-2">
+					<div class="col-4">Phone</div>
+					<div class="col-6">
+						<input type="text" th:field="*{phone}" class="form-control">
+					</div>
+				</div>
+				
+				<div class="row m-2">
+					<div class="col-4">Email</div>
+					<div class="col-6">
+						<input type="email" th:field="*{email}" class="form-control">
+					</div>
+				</div>
+				
+				<div class="row m-2">
+					<div class="col-4">CompanyName</div>
+					<div class="col-6">
+						<input type="text" th:field="*{company}" class="form-control">
+					</div>
+				</div>
+				
+				<div class="row m-2">
+					<div class="col-4">Post</div>
+					<div class="col-6">
+						<input type="text" th:field="*{post}" class="form-control">
+					</div>
+				</div>
+				
+				<div class="row m-2">
+					<div class="col-4">Salary</div>
+					<div class="col-6">
+						<input type="number" th:field="*{salary}" class="form-control">
+					</div>
+				</div>
+				
+				<div class="row m-2">
+					<div class="col-4">Join Date</div>
+					<div class="col-6">
+						<input type="date" th:field="*{joinDate}" class="form-control">
+					</div>
+				</div>
+
+				<div class="row m-2">
+					<div class="col-4">Department</div>
+					<div class="col-6">
+						 <select   th:field="*{department}" class="form-control">
+						   
+						     <option value="">Select</option>
+						     <option th:each="dept:${dplist}" th:value="${dept.id}">[[${dept.dpt_name}]]</option>
+						     
+						   </select>
+					</div>
+				</div>
+				
+				
+				
+				
+				<div class="row m-2">
+					<div class="col-4">Projects</div>
+					<div class="col-6">
+						<input type="checkbox" th:field="*{project}" value="project_1"> Project_1
+						<input type="checkbox" th:field="*{project}" value="project_2"> Project_2
+						<input type="checkbox" th:field="*{project}" value="project_3"> Project_3
+						<input type="checkbox" th:field="*{project}" value="project_4"> Project_4
+						<input type="checkbox" th:field="*{project}" value="project_5"> Project_5
+						<input type="checkbox" th:field="*{project}" value="project_6"> Project_6
+					</div>
+				</div>
+				
+				
+				
+				<div class="row m-2">
+					<div class="col-4">Country</div>
+					<div class="col-6">
+						<input type="text" th:field="*{address.country}" class="form-control">
+					</div>
+				</div>
+				
+				<div class="row m-2">
+					<div class="col-4">City</div>
+					<div class="col-6">
+						<input type="text" th:field="*{address.city}" class="form-control">
+					</div>
+				</div>
+				
+				
+				<div class="row m-2">
+					<div class="col-4">State</div>
+					<div class="col-6">
+						 
+						   <select th:field="*{address.state}" class="form-control">
+						   
+						     <option value="">Select</option>
+						     <option value="state-1">State-1</option>
+						     <option value="state-2">State-2</option>
+						     <option value="state-3">State-3</option>
+						     <option value="state-4">State-4</option>
+						     <option value="state-5">State-5</option>
+						     <option value="state-6">State-6</option>
+						     <option value="state-7">State-7</option>
+						     
+						   </select>
+						 
+					</div>
+				</div>
+				
+				<div class="row m-2">
+					<div class="col-4">ZipCode</div>
+					<div class="col-6">
+						<input type="text" th:field="*{address.zipcode}" class="form-control">
+					</div>
+				</div>
+
+				<div class="row m-2">
+					<div class="col-4"></div>
+					<div class="col-6">
+						<input type="submit" value="Update" class="btn btn-success">
+					</div>
+				</div>
+				<input type="hidden" th:field="*{id}">
+				
+		</form>
+		
+		
+
+			</div>
+
+			<div class="card-footer bg-warning text-white text-center">copyright@2023</div>
+		</div>
+
+	</div>
+
+
+</body>
+</html>

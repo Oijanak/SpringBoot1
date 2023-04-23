@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee List</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+	<div th:insert="header.html"></div>
+	
+	<div class="container-fluid">
+	<div class="card">
+		<div class="card-header bg-primary text-white text-center">
+		<h4>Employee Details</h4>
+		</div>
+		<div class="card-body">
+		<table class="table table-striped table-hover mw-100">
+			<thead>
+				<tr>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>Gender</td>
+					<td>Phone</td>
+					<td>Email</td>
+					<td>DOB</td>
+					<td>Company Name</td>
+					<td>Post</td>
+					<td>Salary</td>
+					<td>Join Date</td>
+					<td>Department</td>
+					<td>Projects</td>
+					<td>Country</td>
+					<td>City</td>
+					<td>State</td>
+					<td>Zip Code</td>
+					<td>Action</td>
+					
+				</tr>
+			
+				
+			
+			
+			
+			</thead>
+			<tbody>
+					<tr th:each="e : ${elist}">
+					<td>[[${e.fname}]]</td>
+					<td>[[${e.lname}]]</td>
+					<td>[[${e.gender}]]</td>
+					<td>[[${e.phone}]]</td>
+					<td>[[${e.email}]]</td>
+					
+					<td>[[${e.company}]]</td>
+					<td>[[${e.dob}]]</td>
+					<td>[[${e.post}]]</td>
+					<td>[[${e.salary}]]</td>
+					<td>[[${e.joinDate}]]</td>
+					<td>[[${e.department.dpt_name}]]</td>
+					<td>[[${e.project}]]</td>
+					<td>[[${e.address.country}]]</td>
+					<td>[[${e.address.city}]]</td>
+					<td>[[${e.address.state}]]</td>
+					<td>[[${e.address.zipcode}]]</td>
+					<td>
+						<a th:href="@{/editEmp(id=${e.id})}"><input type="submit" value="Edit" class="btn btn-success"></a><br><br>
+						<a th:href="@{/deleteEmp(id=${e.id})}"><input type="submit" value="Delete" class="btn btn-success"></a>
+					</td>
+				</tr>
+			
+			
+			</tbody>
+			
+			
+			
+			
+		
+		
+		
+		</table>
+		
+			
+		
+		</div>
+		<div class="card-footer bg-warning text-white text-center" >copyright@2023</div>
+	
+	</div>
+	
+	
+	
+	</div>
+</body>
+</html>
