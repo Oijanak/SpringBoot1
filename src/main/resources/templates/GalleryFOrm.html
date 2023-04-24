@@ -14,7 +14,9 @@
 		</div>
 		<div class="card-body">
 		<span th:each="imgname:${imgNameList}">
+			<a th:href="@{'/img/'+${imgname}}" target="_blank">
 			<img alt="" th:src="@{'/img/'+${imgname}}" width="300px" height="300px">
+			</a>
 		</span>
 			
 		
