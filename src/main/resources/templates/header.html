@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Navbar</title>
@@ -8,7 +8,7 @@
 <body>
 	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Home</a>
+    <a class="navbar-brand" href="/home">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,15 +30,18 @@
           <a class="nav-link" href="/gallery">Gallery</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="/contact">Contact</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="/upload">Upload</a>
         </li>
-      </ul>
-      <form class="d-flex">
         
-        <a href="/login"><button class="btn btn-primary" type="button">Logout</button></a>
+         	
+      </ul>
+
+      <form class="d-flex">
+     	      <p style="color: white;" th:if="${session.activeuser != null}">Welcome :[[${session.activeuser.fname}]]</p>&nbsp; &nbsp; &nbsp;
+        <a href="/logout"><button class="btn btn-primary" type="button">Logout</button></a>
       </form>
     </div>
   </div>

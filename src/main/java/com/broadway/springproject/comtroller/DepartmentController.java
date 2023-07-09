@@ -1,5 +1,7 @@
 package com.broadway.springproject.comtroller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +19,10 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService ds;
 	@GetMapping("/department")
-	public String department() {
+	public String department(HttpSession session) {
+		if(session.getAttribute("activeuser")==null) {
+			return "LoginForm";
+		}
 		return "department";
 	} 
 	@PostMapping("/department")
@@ -26,7 +31,10 @@ public class DepartmentController {
 		return "Home";
 	}
 	@GetMapping("/departmentList")
-	public String getAll(Model model) {
+	public String getAll(Model model,HttpSession session) {
+		if(session.getAttribute("activeuser")==null) {
+			return "LoginForm";
+		}
 		model.addAttribute("dlist",ds.getDepartment());
 		return "DepartmentList";
 	}

@@ -3,7 +3,11 @@ package com.broadway.springproject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+
 @SpringBootApplication
+@OpenAPIDefinition(info=@Info(title="Employee MS",description = "EmployeeAPIs",version ="2.0" ))
 public class SpringprojectApplication {
 
 	public static void main(String[] args) {

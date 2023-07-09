@@ -7,4 +7,5 @@ import com.broadway.springproject.model.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	User findByUsernameAndPassword(String un,String pw);
 
+
 }
